@@ -7,16 +7,39 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin{
+class _HomePageState extends State<HomePage>{
   File newFile;
-  String path='No file Added';
+  String path='No file Added( only .xlsx files)';
 
-  void selectFile() async {
-    File temp = await FilePicker.getFile();
+  Future selectFile() async {
+    File temp = await FilePicker.getFile(
+      type: FileType.custom,
+      allowedExtensions: ['xlxs'],
+    );
+    temp.path.contains('.xlxs') ?
     setState(() {
       newFile = temp;
       path = newFile.path;
-    });
+    })
+        :
+            showDialog(
+                context: context,
+              builder: (context) => AlertDialog(
+                title: Text('Only .xlxs file formats are allowed.'),
+                actions: [
+                  FlatButton(
+                    onPressed: () => Navigator.of(context).pop(),
+                    child: Text(
+                      'ok',
+                      style: TextStyle(
+                          color: Colors.grey,
+                        fontSize: 20
+                      ),
+                    ),
+                  )
+                ],
+              )
+            );
 }
   @override
   Widget build(BuildContext context) {
