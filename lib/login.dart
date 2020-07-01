@@ -17,32 +17,32 @@ class _LoginPageState extends State<LoginPage> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Container(
-            padding: EdgeInsets.only(top: 90,left: 10,right: 10),
+            padding: EdgeInsets.only(top: 70,left: 10,right: 10),
             child: Stack(
               children: <Widget>[
                 Container(
-                  padding: EdgeInsets.fromLTRB(25, 35, 0, 0),
+                  padding: EdgeInsets.fromLTRB(25, 15, 0, 0),
                   child: Text(
                     'Hello',
-                    style: TextStyle(fontSize: 80,fontWeight: FontWeight.bold),
+                    style: TextStyle(fontSize: 80,fontWeight: FontWeight.bold,fontFamily: 'BenchNine',color: Colors.blue),
                   ),
                 ),
                 Container(
-                  padding: EdgeInsets.fromLTRB(15, 150, 0, 0),
+                  padding: EdgeInsets.fromLTRB(15, 130, 0, 0),
                   child: Text(
                     'There',
-                    style: TextStyle(fontSize: 80,fontWeight: FontWeight.bold),
+                    style: TextStyle(fontSize: 80,fontWeight: FontWeight.bold,color: Colors.blue[600]),
                   ),
                 ),
                 Container(
-                  padding: EdgeInsets.fromLTRB(255, 150, 0, 0),
+                  padding: EdgeInsets.fromLTRB(255, 130, 0, 0),
                   child: Text(
                     '.',
-                    style: TextStyle(fontSize: 80,fontWeight: FontWeight.bold),
+                    style: TextStyle(fontSize: 80,fontWeight: FontWeight.bold,fontFamily: 'BenchNine',color: Colors.blue[600]),
                   ),
                 ),
                 Container(
-                  padding: EdgeInsets.only(top:310,left: 20,right: 20),
+                  padding: EdgeInsets.only(top:250,left: 20,right: 20),
                   child: Column(
                     children: <Widget>[
                       TextField(
@@ -50,9 +50,10 @@ class _LoginPageState extends State<LoginPage> {
                           labelStyle: TextStyle(
                             fontWeight: FontWeight.bold,
                             color: Colors.grey,
+                              fontFamily: 'BenchNine'
                           ),
                           focusedBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(color: Colors.green)
+                            borderSide: BorderSide(color: Colors.blue)
                           ),
                           labelText: 'EMAIL'
                         ),
@@ -63,9 +64,10 @@ class _LoginPageState extends State<LoginPage> {
                             labelStyle: TextStyle(
                               fontWeight: FontWeight.bold,
                               color: Colors.grey,
+                                fontFamily: 'BenchNine'
                             ),
                             focusedBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(color: Colors.green)
+                                borderSide: BorderSide(color: Colors.blue)
                             ),
                             labelText: 'PASSWORD'
                         ),
@@ -83,7 +85,9 @@ class _LoginPageState extends State<LoginPage> {
                             style: TextStyle(
                               color: Colors.blueAccent,
                               fontWeight: FontWeight.bold,
-                              decoration: TextDecoration.underline
+                              decoration: TextDecoration.underline,
+                                fontFamily: 'BenchNine',
+                              fontSize: 18
                               )
                             ),
                           ),
@@ -110,7 +114,8 @@ class _LoginPageState extends State<LoginPage> {
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontWeight: FontWeight.bold,
-                                      fontSize: 20
+                                      fontSize: 22,
+                                      fontFamily: 'BenchNine'
                                   )
                               ),
                             ),
