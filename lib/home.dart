@@ -15,7 +15,7 @@ class _HomePageState extends State<HomePage>{
   String path='No file Added( only .xlsx files)';
   var val = null;
   bool loading = false;
-
+  var status;
 
   Future<String> _uploadFile(String file) async {
 
@@ -33,9 +33,16 @@ class _HomePageState extends State<HomePage>{
     var jsonresponse = json.decode(response.body);
 
     print(jsonresponse['data']);
+    print(jsonresponse['error_code']);
     setState(() {
       loading = false;
     });
+    if (jsonresponse['error_code'] == 0){
+      status = 0;
+    }
+    else{
+      status = 1;
+    }
     return jsonresponse['data'];
   }
   on SocketException{
@@ -148,7 +155,27 @@ class _HomePageState extends State<HomePage>{
                             )
                         );
                       }
-                      else if (val != null){
+                      else if (val!= null && status == 1){
+                        showDialog(
+                            context: context,
+                            builder: (context) => AlertDialog(
+                              title: Text(val,style: TextStyle(color: Colors.red,fontFamily: 'BenchNine'),),
+                              actions: [
+                                FlatButton(
+                                  onPressed: () => Navigator.of(context).pop(),
+                                  child: Text(
+                                    'ok',
+                                    style: TextStyle(
+                                        color: Colors.red,
+                                        fontSize: 20,
+                                        fontFamily: 'BenchNine'
+                                    ),
+                                  ),
+                                )
+                              ],
+                            ));
+                      }
+                      else if (val != null && status == 0){
                         showDialog(
                             context: context,
                             builder: (context) => AlertDialog(

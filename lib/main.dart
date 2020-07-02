@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:uiplay/home.dart';
-import 'package:uiplay/login.dart';
+import 'package:swadeshi_admin/home.dart';
+import 'package:swadeshi_admin/login.dart';
 import 'package:flutter/services.dart';
 void main() => runApp(MyApp());
 
